@@ -32,7 +32,7 @@ public class TileEntityStorage extends TileEntity implements IInventory, ISidedI
 		outputIDlist = new ArrayList<Integer>();
 		outputIDlist.addAll(BagHandler.getExtractedBagList());
 		outputindex = 0;
-		outputID = outputIDlist.get(outputindex);
+		outputID = outputIDlist.isEmpty() ? -1 : outputIDlist.get(outputindex);
 	}
 
 	public void activate(World world, int x, int y, int z, EntityPlayer player) {
@@ -61,21 +61,17 @@ public class TileEntityStorage extends TileEntity implements IInventory, ISidedI
 	}
 
 	public void cycleOutputID(boolean direction) {
+		if (outputIDlist.isEmpty()) return;
 		if (direction) {
 			outputindex++;
-			if (outputindex == outputIDlist.size())
+			if (outputindex >= outputIDlist.size())
 				outputindex = 0;
 		} else {
 			outputindex--;
 			if (outputindex < 0)
 				outputindex = outputIDlist.size() - 1;
 		}
-		try {
-			outputID = outputIDlist.get(outputindex);
-		} catch (IndexOutOfBoundsException e) {
-			outputID = outputIDlist.get(0);
-			outputindex = 0;
-		}
+		outputID = outputIDlist.get(outputindex);
 		if (worldObj.isRemote)
 			LootbagsPacketHandler.instance.sendToServer(new StorageMessageClient(this, outputID, outputindex));
 	}
@@ -122,6 +118,7 @@ public class TileEntityStorage extends TileEntity implements IInventory, ISidedI
 	}
 
 	public boolean removeBag() {
+		if (outputID == -1) return false;
 		int value = BagHandler.getBagValue(outputID)[1];
 		if (stored_value >= value) {
 			stored_value -= value;
@@ -183,6 +180,7 @@ public class TileEntityStorage extends TileEntity implements IInventory, ISidedI
 	@Override
 	public ItemStack getStackInSlot(int index) {
 		if (index == 0) {
+			if (outputID == -1) return null;
 			if (stored_value >= BagHandler.getBagValue(outputID)[1] || justRemoved) {
 				if (LootBags.STOREDCOUNT) {
 					if (LootBags.MEKOVERRIDE) {
@@ -202,6 +200,7 @@ public class TileEntityStorage extends TileEntity implements IInventory, ISidedI
 	@Override
 	public ItemStack decrStackSize(int slot, int dec) {
 		if (slot == 0) {
+			if (outputID == -1) return null;
 			int value = BagHandler.getBagValue(outputID)[1];
 			if (stored_value >= value) {
 				stored_value -= value;
@@ -231,7 +230,7 @@ public class TileEntityStorage extends TileEntity implements IInventory, ISidedI
 	@Override
 	public void setInventorySlotContents(int index, ItemStack stack) {
 		if (stack == null || !(stack.getItem() instanceof LootbagItem)) {
-			if (stored_value < BagHandler.getBagValue(outputID)[1])
+			if (outputID == -1 || stored_value < BagHandler.getBagValue(outputID)[1])
 				return;
 			else {
 				stored_value -= BagHandler.getBagValue(outputID)[1];

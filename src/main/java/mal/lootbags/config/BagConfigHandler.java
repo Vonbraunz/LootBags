@@ -1272,6 +1272,7 @@ public class BagConfigHandler {
 		list.add(ConfigText.TAB.getText()+"$MINIMUMGENERALLOOTWEIGHT:-1");
 		list.add(ConfigText.TAB.getText()+"$PREVENTITEMREPEATS:none");
 		list.add(ConfigText.TAB.getText()+"$EXCLUDEENTITIES:false");
+		list.add(ConfigText.TAB.getText()+"$BAGVALUE:1:1");
 		list.add(ConfigText.TAB.getText()+"$STARTBLACKLIST");
 		list.add(ConfigText.TAB.getText()+ConfigText.TAB.getText()+"lootbags:itemlootbag:0");
 		list.add(ConfigText.TAB.getText()+"$ENDBLACKLIST");
@@ -1297,6 +1298,7 @@ public class BagConfigHandler {
 		list.add(ConfigText.TAB.getText()+"$MINIMUMGENERALLOOTWEIGHT:-1");
 		list.add(ConfigText.TAB.getText()+"$PREVENTITEMREPEATS:none");
 		list.add(ConfigText.TAB.getText()+"$EXCLUDEENTITIES:false");
+		list.add(ConfigText.TAB.getText()+"$BAGVALUE:4:4");
 		list.add(ConfigText.TAB.getText()+"$STARTBLACKLIST");
 		list.add(ConfigText.TAB.getText()+ConfigText.TAB.getText()+"lootbags:itemlootbag:0");
 		list.add(ConfigText.TAB.getText()+"$ENDBLACKLIST");
@@ -1322,6 +1324,7 @@ public class BagConfigHandler {
 		list.add(ConfigText.TAB.getText()+"$MINIMUMGENERALLOOTWEIGHT:-1");
 		list.add(ConfigText.TAB.getText()+"$PREVENTITEMREPEATS:none");
 		list.add(ConfigText.TAB.getText()+"$EXCLUDEENTITIES:false");
+		list.add(ConfigText.TAB.getText()+"$BAGVALUE:16:16");
 		list.add(ConfigText.TAB.getText()+"$STARTBLACKLIST");
 		list.add(ConfigText.TAB.getText()+ConfigText.TAB.getText()+"lootbags:itemlootbag:0");
 		list.add(ConfigText.TAB.getText()+"$ENDBLACKLIST");
@@ -1347,6 +1350,7 @@ public class BagConfigHandler {
 		list.add(ConfigText.TAB.getText()+"$MINIMUMGENERALLOOTWEIGHT:-1");
 		list.add(ConfigText.TAB.getText()+"$PREVENTITEMREPEATS:none");
 		list.add(ConfigText.TAB.getText()+"$EXCLUDEENTITIES:false");
+		list.add(ConfigText.TAB.getText()+"$BAGVALUE:64:64");
 		list.add(ConfigText.TAB.getText()+"$STARTBLACKLIST");
 		list.add(ConfigText.TAB.getText()+ConfigText.TAB.getText()+"lootbags:itemlootbag:0");
 		list.add(ConfigText.TAB.getText()+"$ENDBLACKLIST");
@@ -1372,6 +1376,7 @@ public class BagConfigHandler {
 		list.add(ConfigText.TAB.getText()+"$MINIMUMGENERALLOOTWEIGHT:-1");
 		list.add(ConfigText.TAB.getText()+"$PREVENTITEMREPEATS:none");
 		list.add(ConfigText.TAB.getText()+"$EXCLUDEENTITIES:false");
+		list.add(ConfigText.TAB.getText()+"$BAGVALUE:256:256");
 		list.add(ConfigText.TAB.getText()+"$STARTBLACKLIST");
 		list.add(ConfigText.TAB.getText()+ConfigText.TAB.getText()+"lootbags:itemlootbag:0");
 		list.add(ConfigText.TAB.getText()+"$ENDBLACKLIST");

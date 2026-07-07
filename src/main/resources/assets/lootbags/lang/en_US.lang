@@ -10,3 +10,5 @@ name.lootbags_lootbagSoaryn.name=Soaryn Bag
 name.lootbags_lootbagWyld.name=Wyld Bag
 
 tile.lootbags_loot_recycler.name=Loot Recycler
+tile.lootbags_loot_opener.name=Lootbag Opener
+tile.lootbags_loot_storage.name=Lootbag Storage

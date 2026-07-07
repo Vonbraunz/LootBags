@@ -39,7 +39,7 @@ public class StorageGui extends GuiContainer {
 		this.drawDefaultBackground();
 		super.drawScreen(mouseX, mouseY, partialTicks);
 
-		if (LootbagsUtil.isPointInRegion(135, 16, 16, 16, mouseX, mouseY, guiLeft, guiTop))
+		if (bench.getID() != -1 && LootbagsUtil.isPointInRegion(135, 16, 16, 16, mouseX, mouseY, guiLeft, guiTop))
 			this.renderToolTip(new ItemStack(LootBags.lootbagItem, 1, bench.getID()), mouseX, mouseY);
 
 		if (LootbagsUtil.isPointInRegion(44, 26, 40, 8, mouseX, mouseY, guiLeft, guiTop))
@@ -60,14 +60,19 @@ public class StorageGui extends GuiContainer {
 		this.fontRendererObj.drawString("Lootbag Storage", 52, 5, 4210752);
 		this.fontRendererObj.drawString("Stored: ", 44, 16, 4210752);
 		this.fontRendererObj.drawString(LootbagsUtil.formatSciNot(bench.getStorage()), 44, 26, 4210752);
-		this.fontRendererObj.drawString("Needed: ", 96, 16, 4210752);
-		this.fontRendererObj.drawString(LootbagsUtil.formatSciNot(BagHandler.getBagValue(bench.getID())[1]), 96, 26, 4210752);
 
-		this.itemRender.renderItemAndEffectIntoGUI(this.fontRendererObj, this.mc.renderEngine, new ItemStack(LootBags.lootbagItem, 1, bench.getID()), 135, 16);
-
-		if (bench.getStorage() < BagHandler.getBagValue(bench.getID())[1]) {
-			this.mc.renderEngine.bindTexture(new ResourceLocation("lootbags", "textures/gui/storage_gui.png"));
-			this.drawTexturedModalRect(135, 16, 176, 0, 16, 16);
+		int id = bench.getID();
+		int[] bagValue = id == -1 ? null : BagHandler.getBagValue(id);
+		if (bagValue != null) {
+			this.fontRendererObj.drawString("Needed: ", 96, 16, 4210752);
+			this.fontRendererObj.drawString(LootbagsUtil.formatSciNot(bagValue[1]), 96, 26, 4210752);
+			this.itemRender.renderItemAndEffectIntoGUI(this.fontRendererObj, this.mc.renderEngine, new ItemStack(LootBags.lootbagItem, 1, id), 135, 16);
+			if (bench.getStorage() < bagValue[1]) {
+				this.mc.renderEngine.bindTexture(new ResourceLocation("lootbags", "textures/gui/storage_gui.png"));
+				this.drawTexturedModalRect(135, 16, 176, 0, 16, 16);
+			}
+		} else {
+			this.fontRendererObj.drawString("No bags configured", 52, 20, 0xFF5555);
 		}
 	}
 }

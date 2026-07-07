@@ -11,3 +11,5 @@ item.lootbag.wyld.name=Сумка Wyld
 item.lootbag.waffle.name=Сумка Waffle
 
 tile.recyclerblock.name=Переработчик ресурсов
+tile.lootbags_loot_opener.name=Lootbag Opener
+tile.lootbags_loot_storage.name=Lootbag Storage

@@ -7,3 +7,5 @@ item.lootbag.bacon.name=猪肉礼袋
 item.lootbag.wornout.name=破旧的礼袋
 
 tile.recyclerblock.name=礼袋回收机
+tile.lootbags_loot_opener.name=Lootbag Opener
+tile.lootbags_loot_storage.name=Lootbag Storage
