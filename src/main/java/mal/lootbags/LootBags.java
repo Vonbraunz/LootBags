@@ -220,7 +220,10 @@ public class LootBags {
 		
 		if(!DISABLERECYCLER)
 			CraftingManager.getInstance().getRecipeList().add(new ShapedOreRecipe(new ItemStack(recyclerBlock), new Object[]{"SSS", "SCS", "SIS", 'S', "stone", 'C', new ItemStack(Blocks.chest), 'I', "ingotIron"}));
-		
+
+		CraftingManager.getInstance().getRecipeList().add(new ShapedOreRecipe(new ItemStack(openerBlock), new Object[]{"SIS", "SCS", "SSS", 'S', "stone", 'C', new ItemStack(Blocks.chest), 'I', "ingotIron"}));
+		CraftingManager.getInstance().getRecipeList().add(new ShapedOreRecipe(new ItemStack(storageBlock), new Object[]{"SSS", "ICI", "SSS", 'S', "stone", 'C', new ItemStack(Blocks.chest), 'I', "ingotIron"}));
+
 		BagHandler.generateBagRecipes(CraftingManager.getInstance().getRecipeList());
 		
 		//TODO: fix
